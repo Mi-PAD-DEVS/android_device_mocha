@@ -1,0 +1,43 @@
+USE_CAMERA_STUB := true
+
+# inherit from the proprietary version
+-include vendor/xiaomi/mocha/BoardConfigVendor.mk
+
+TARGET_ARCH := arm
+TARGET_NO_BOOTLOADER := true
+TARGET_BOARD_PLATFORM := tegra
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_VARIANT := cortex-a15
+TARGET_ARCH_VARIANT := armv7-a
+ARCH_ARM_HAVE_TLS_REGISTER := true
+
+TARGET_BOOTLOADER_BOARD_NAME := mocha
+
+BOARD_KERNEL_CMDLINE := 
+BOARD_KERNEL_BASE := 0x10000000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --dt device/xiaomi/mocha/dt.img
+
+BOARD_USE_CUSTOM_RECOVERY_FONT :=  \"roboto_23x41.h\"
+TARGET_SCREEN_HEIGHT := 1200
+TARGET_SCREEN_WIDTH := 1920
+BRIGHTNESS_SYS_FILE := /sys/class/leds/button-backlight/brightness	  
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
+TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_RECOVERY_SWIPE := true
+BOARD_NATIVE_DUALBOOT := true
+BOARD_NATIVE_DUALBOOT_SINGLEDATA := true
+TARGET_RECOVERY_UI_LIB := librecovery_ui_mocha
+BOARD_BOOTIMAGE_PARTITION_SIZE := 20971520
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 20971520
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 13742637056
+BOARD_FLASH_BLOCK_SIZE := 131072
+
+BOARD_CUSTOM_RECOVERY_UI := \
+	../../device/xiaomi/mocha/recovery/dualboot.c \
+	../../device/xiaomi/mocha/recovery/recovery_ui.c
+
+TARGET_PREBUILT_KERNEL := device/xiaomi/mocha/kernel
