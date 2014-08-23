@@ -38,8 +38,8 @@ char* MENU_ITEMS[] = { "Managed System",
                        "mounts and storage",
                        "advanced",
 #ifdef PHILZ_TOUCH_RECOVERY
-					   "PhilZ Settings",
-					   "Power Options",
+			"PhilZ Settings",
+			"Power Options",
 #endif
                        NULL };
 
@@ -69,10 +69,6 @@ void device_ui_init(UIParameters* ui_parameters) {
 }
 
 int device_recovery_start() {
-#ifdef PHILZ_TOUCH_RECOVERY
-refresh_recovery_settings(1);
-#endif
-
     dualboot_init();
     update_menu_items();
     return 0;
@@ -126,7 +122,7 @@ void device_toggle_truedualboot(void) {
 	int enable = dualboot_is_tdb_enabled();
 
 #ifndef PHILZ_TOUCH_RECOVERY
-		ui_setMenuTextColor(MENU_TEXT_COLOR_RED);
+	ui_setMenuTextColor(MENU_TEXT_COLOR_RED);
 #endif
 
 	sprintf(confirm, "Yes - %s TrueDualBoot", enable?"DISABLE":"ENABLE");
