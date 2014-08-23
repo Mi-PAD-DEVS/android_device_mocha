@@ -153,7 +153,7 @@ void device_toggle_truedualboot(void) {
 	}
 
 #ifndef PHILZ_TOUCH_RECOVERY
-ui_setMenuTextColor(MENU_TEXT_COLOR);
+	ui_setMenuTextColor(MENU_TEXT_COLOR);
 #endif
 
 	return;
